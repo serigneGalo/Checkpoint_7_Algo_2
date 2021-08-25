@@ -8,6 +8,7 @@ BEGIN
     //the Do While allow to forced the user to give a sentence with point in the end
         Write(Give a sentence with a point . in the end); 
         Read(sentenc);
+    //.length get the length of the sentence.
         last_char:=sentenc[sentenc.length-1];
     WHILE (last_char <>".")
     N_caracter:=sentenc.length;
