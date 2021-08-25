@@ -1,0 +1,31 @@
+ALGORITHM Sentence
+VAR
+    N_caracter,N_word,N_voyel,i:INTEGER;
+    sentenc:STRING; 
+    last_char:CHAR;
+BEGIN
+    DO
+        Write(Give a sentence with a point . in the end); 
+        Read(sentenc);
+        last_char:=sentenc[sentenc.length-1];
+    WHILE (last_char <>".")
+    N_caracter:=sentenc.length;
+    Write("The number of caracters is:"+N_caracter);
+    N_word:=0;
+    FOR i FROM 0 TO N_caracter-2 STEP 1 DO
+    
+        IF (sentenc[i]=" " and sentenc[i+1] <> " ") THEN
+            N_word:=N_word+1;
+        END_IF
+
+    END_FOR
+    Write("The number of words is:"+N_word);
+    N_voyel:=0;
+    FOR i FROM 0 TO N_caracter-1 STEP 1  DO
+        IF (sentenc[i]="a" or sentenc[i]="e" or sentenc[i]="i" or sentenc[i]="o" or sentenc[i]="u" or sentenc[i]="y" sentenc[i]="A" or sentenc[i]="E" or sentenc[i]="I" or sentenc[i]="O" or sentenc[i]="U" or sentenc[i]="Y") THEN
+            N_voyel:=N_voyel+1;
+        END_IF
+    END_FOR
+    Write("The number of vowels is:"+ N_voyel);
+    END_IF
+END
