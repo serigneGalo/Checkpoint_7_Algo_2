@@ -1,0 +1,123 @@
+// Probleme 1: Solution 1
+ALGORITHM SUM_SameNumber_1
+VAR
+    som: INTEGER:=0;
+    n1,n2:INTEGER;
+    arr1 : ARRAY_OF type[n1];
+    arr2 : ARRAY_OF type[n2];
+    i,j:INTEGER:=0;
+BEGIN
+    Write("Give the length of the first array");
+    Read(n1);
+    Write("Give the values of the first array");
+    Read(arr1);
+    Write("Give the length of the second array");
+    Read(n2);
+    Write("Give the values of the second array");
+    Read(arr2);
+    FOR i FROM 0 TO n1-1 STEP 1  DO
+        FOR j FROM 0 TO n2-1 STEP 1  DO
+            IF (arr1[i]=arr2[j]) THEN
+                break;
+            ELSE
+                som:=som+arr1[i];
+            END_IF
+        END_FOR
+    END_FOR
+    FOR j FROM 0 TO n2-1 STEP 1  DO
+        FOR i FROM 0 TO n1-1 STEP 1  DO
+            IF (arr2[j]=arr1[i]) THEN
+                Write(arr2[j] +"is a commun element");
+            ELSE
+                som:=som+arr2[j];
+            END_IF
+        END_FOR
+    END_FOR
+    
+END
+
+//Problem 1: Solution 2
+ALGORITHM SUM_SameNumber_1
+VAR
+    som: INTEGER:=0;
+    n1,n2:INTEGER;
+    arr1 : ARRAY_OF type[n1];
+    arr2 : ARRAY_OF type[n2];   
+    htab: HASH_TABLE<INTEGER,INTEGER>
+    i,j,k:INTEGER:=0;
+    count:INTEGER;
+BEGIN
+    Write("Give the length of the first array");
+    Read(n1);
+    Write("Give the values of the first array");
+    Read(arr1);
+    Write("Give the length of the second array");
+    Read(n2);
+    Write("Give the values of the second array");
+    Read(arr2);
+    //Insert the values in the hash table htab
+    FOR (i FROM 0 TO n1-1 STEP 1)  DO
+        htab.insert(arr1[i],arr1[i]);
+    END_FOR
+    FOR (j FROM 0 TO n2-1 STEP 1)  DO
+        htab.insert(arr2[j],arr2[j]);
+    END_FOR
+    //n1+n2-2 is the length of the hash table.
+    count:=1;
+
+    FOR i FROM 0 TO n1-1 STEP 1  DO
+        FOR j FROM 0 TO n2-1 STEP 1  DO
+            IF (htab.get(arr1[i])=htab.get(arr2[j]) THEN
+                break;
+            ELSE
+                count:=count+arr1[i];
+            END_IF
+        END_FOR
+    END_FOR
+
+    FOR j FROM 0 TO n2-1 STEP 1  DO
+        FOR i FROM 0 TO n1-1 STEP 1  DO
+            IF (htab.get(arr2[j])=htab.get(arr1[i]) THEN
+                Write(arr2[j] +"is a commun element");
+            ELSE
+                count:=count+arr2[j];
+            END_IF
+        END_FOR
+    END_FOR
+
+END
+
+
+//Problem 2
+ALGORITHM SUM_SameNumber_2
+VAR
+    som: INTEGER:=0;
+    n1,n2:INTEGER;
+    arr1 : ARRAY_OF type[n1];
+    arr2 : ARRAY_OF type[n2];
+    i,j:INTEGER:=0;
+BEGIN
+    Write("Give the length of the first and second array");
+    Read(n1 and n2);
+    Write("Give the values of the first and second array");
+    Read(arr1 and arr2);
+    FOR i FROM 0 TO n1-1 STEP 1 DO
+        FOR j FROM 0 TO n2-1 STEP 1 DO
+            IF (arr1[i]=arr2[j]) THEN
+                break;
+            ELSE
+                som:=som+arr1[i];
+            END_IF
+        END_FOR
+    END_FOR
+    FOR j FROM 0 TO n2-1 STEP 1 DO
+        FOR i FROM 0 TO n1-1 STEP 1 DO
+            IF (arr2[j]=arr1[i]) THEN
+                Write(arr2[j] +"is a commun element");
+            ELSE
+                som:=som+arr2[j];
+            END_IF
+        END_FOR
+    END_FOR
+    
+END
