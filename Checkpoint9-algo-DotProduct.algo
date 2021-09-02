@@ -1,0 +1,90 @@
+//Algo with the Procedure
+
+PROCEDURE dot_product(v1:FLOAT, v2:FLOAT)
+VAR
+    ps:FLOAT:=0;
+    i,j:INTEGER;
+    n:INTEGER;
+    arr : ARRAY_OF FLOAT [n];
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        arr[i]:=v1[i]*v2[i];
+        FOR j FROM 0 TO n-1 STEP 1  DO
+           ps:=ps+arr[i]; 
+           break;
+        END_FOR
+    END_FOR
+END
+ALGORITHM Dot product
+VAR
+    l_vector:INTEGER;
+    vector1 : ARRAY_OF float[l_vector];
+    vector2 : ARRAY_OF float[l_vector];
+    resultat:FLOAT;
+BEGIN
+    Write("Give the length of your vectors")
+        Read(l_vector);
+    Write("Give the values of your first vector")
+    //for the first vector.
+        FOR i FROM 0 TO l_vector-1 STEP 1  DO
+            Read(vector1[i]);
+        END_FOR
+        Write("Give the values of your first vector")
+    //for the second vector.
+        FOR i FROM 0 TO l_vector-1 STEP 1  DO
+            Read(vector2[i]);
+        END_FOR
+    resultat:=dot_product(vector1,vector2);
+    IF (resultat=0) THEN
+        Write("Ces 2 vecteurs sont orthogonaux");
+    ELSE
+        Write("Ces 2 vecteurs ne sont pas orthogonaux");
+    END_IF
+END
+
+//Algo with the function
+
+FUNCTION dot_product(v1:FLOAT, v2:FLOAT) : FLOAT
+VAR
+    ps:FLOAT:=0;
+    i,j:INTEGER;
+    l_vector:INTEGER;
+    arr : ARRAY_OF FLOAT [l_vector];
+
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        arr[i]:=v1[i]*v2[i];
+        FOR j FROM 0 TO n-1 STEP 1  DO
+            ps:=ps+arr[i] break;
+        END_FOR
+    END_FOR
+    RETURN ps;
+END
+
+ALGORITHM Dot product
+VAR
+    l_vector:
+    vector1 : ARRAY_OF float[l_vector];
+    vector2 : ARRAY_OF float[l_vector];
+    result:FLOAT;
+
+BEGIN
+    Write("Give the length of your vectors")
+        Read(l_vector)
+    Write("Give the values of your first vector")
+    //for the first vector.
+        FOR i FROM 0 TO l_vector-1 STEP 1  DO
+            Read(vector1[i]);
+        END_FOR
+        Write("Give the values of your first vector")
+    //for the second vector.
+        FOR i FROM 0 TO l_vector-1 STEP 1  DO
+            Read(vector2[i]);
+        END_FOR
+    result:=dot_product(vector1,vector2);
+    IF (result=0) THEN
+        Write("Ces 2 vecteurs sont orthogonaux");
+    ELSE
+        Write("Ces 2 vecteurs ne sont pas orthogonaux");
+    END_IF
+END

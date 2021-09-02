@@ -6,21 +6,26 @@ VAR
     arr1 : ARRAY_OF type[n1];
     arr2 : ARRAY_OF type[n2];
     i,j:INTEGER:=0;
+    count:INTEGER:=0;
 BEGIN
     Write("Give the length of the first array");
-    Read(n1);
+        Read(n1);
     Write("Give the values of the first array");
-    Read(arr1);
+        FOR i FROM 0 TO n1-1 STEP 1  DO
+            Read(arr1[i]);
+        END_FOR
     Write("Give the length of the second array");
-    Read(n2);
+        Read(n2);
     Write("Give the values of the second array");
-    Read(arr2);
+        FOR j FROM 0 TO n2-1 STEP 1  DO
+            Read(arr2[i]);
+        END_FOR
     FOR i FROM 0 TO n1-1 STEP 1  DO
         FOR j FROM 0 TO n2-1 STEP 1  DO
             IF (arr1[i]=arr2[j]) THEN
                 break;
             ELSE
-                som:=som+arr1[i];
+
             END_IF
         END_FOR
     END_FOR
@@ -106,7 +111,7 @@ BEGIN
             IF (arr1[i]=arr2[j]) THEN
                 break;
             ELSE
-                som:=som+arr1[i];
+                
             END_IF
         END_FOR
     END_FOR

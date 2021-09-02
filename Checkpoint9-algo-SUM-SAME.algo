@@ -1,0 +1,6 @@
+PROCEDURE Dot product(v1:FLOAT, v2:FLOAT)
+VAR
+    set_declarations
+BEGIN
+    set_instructions
+END
