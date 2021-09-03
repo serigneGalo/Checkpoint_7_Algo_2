@@ -1,0 +1,23 @@
+ALGORITHM InsertionSHORT
+VAR
+    i,j,n: INTEGER;
+    tab : ARRAY_OF INTEGER[n];
+    resultat: ARRAY_OF INTEGER[n];
+    min: INTEGER:=0;
+BEGIN
+    Write("Give your array")
+// reading the items to short.
+    FOR i FROM 0 TO n-1 STEP 1 DO
+        Read(tab[i]);
+    END_FOR
+
+    FOR i FROM 0 TO n-1 STEP 1  DO
+//this loop for allows to get the ninimum of the array without the previous minimum.
+        FOR j FROM i TO arr.length-1 STEP 1  DO
+            IF (arr[j]<=min) THEN
+                min:=arr[j];
+            END_IF
+        END_FOR
+        resultat[i]:=min;
+    END_FOR
+END
