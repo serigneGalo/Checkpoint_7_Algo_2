@@ -9,6 +9,7 @@ BEGIN
 // reading the items to short.
     FOR i FROM 0 TO n-1 STEP 1 DO
         Read(tab[i]);
+        resultat[i]=tab[i];
     END_FOR
 
     FOR i FROM 0 TO n-1 STEP 1  DO
