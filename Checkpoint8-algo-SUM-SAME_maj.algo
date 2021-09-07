@@ -6,7 +6,7 @@ VAR
     arr1 : ARRAY_OF type[n1];
     arr2 : ARRAY_OF type[n2];
     i,j,k,l:INTEGER:=0;
-    verificator:INTEGER;
+    verificator:INTEGER :=0;
 BEGIN
     Write("Give the length of the first array");
         Read(n1);
@@ -42,7 +42,7 @@ BEGIN
             som:=som+arr2[j];
         END_IF
     END_FOR
-
+    Write(som) ;
 END
 
 //Problem 1: Solution 2
@@ -52,13 +52,10 @@ VAR
     n1,n2:INTEGER;
     arr1 : ARRAY_OF type[n1];
     arr2 : ARRAY_OF type[n2];   
-    htab: HASH_TABLE<INTEGER,INTEGER>
+    htab: HASH_TABLE<CHAR,INTEGER>
     i,j,k:INTEGER:=0;
     count:INTEGER:=1;
 BEGIN
-    Write("Give the length of the first array");
-        Read(n1);
-
     Write("Give the values of the first array");
         FOR i FROM 0 TO n1-1 STEP 1  DO
             Read(arr1[i]);
@@ -72,36 +69,37 @@ BEGIN
             Read(arr2[j]);
         END_FOR    
 
-    //Insert the values in the hash table htab
+//Inserer les valeurs dans la hash table htab.
     FOR (i FROM 0 TO n1-1 STEP 1)  DO
-        htab.insert(arr1[i],arr1[i]);
+        htab.insert('arr1[i]',arr1[i]);
     END_FOR
     FOR (j FROM 0 TO n2-1 STEP 1)  DO
-        htab.insert(arr2[j],arr2[j]);
+        htab.insert('arr2[j]',arr2[j]);
     END_FOR
 
     count:=1;
-
+//J'avais travaillé avec le array alors qu'à cette partie du probleme on nous impose de manipuler le hash table 
+//d'ou le htab.get me permettant de recuperer la valeur de la hash table considérée.
     FOR i FROM 0 TO n1-1 STEP 1  DO
         FOR j FROM 0 TO n2-1 STEP 1  DO
-            IF (arr1[i]=arr2[j]) THEN
+            IF (htab.get(arr[i])=htab.get(arr2[j]) THEN
                 verificator:=1;
             END_IF
         END_FOR
         IF (verificator=0) THEN
-            som:=som+arr1[i];
+            som:=som+htab.get(arr1[i]);
         END_IF
     END_FOR
     
     FOR j FROM 0 TO n2-1 STEP 1  DO
         FOR i FROM 0 TO n1-1 STEP 1  DO
-            IF (arr2[j]=arr1[i]) THEN
+            IF (htab.get(arr2[j])=htab.get(arr1[i]) THEN
                 verificator:=1;
-                Write(arr2[j] +"is a commun element");
+                Write(htab.get(arr2[j]) +"is a commun element");
             END_IF
         END_FOR
         IF (verificator=0) THEN
-            som:=som+arr2[j];
+            som:=som+htab.get(arr2[j]);
         END_IF
     END_FOR
 
@@ -118,14 +116,15 @@ VAR
     i,j:INTEGER:=0;
     chek:INTEGER;
 BEGIN
+//Ici j'ai instancié les arrays differemment du probleme 1. C'est la petite différence evoquée sur l'énoncé.
     Write("Give the length of the first and second array");
     Read(n1 and n2);
     Write("Give the values of the first and second array");
-    //remplissage du first array
+//remplissage du first array
         FOR i FROM 0 TO n1-1 STEP 1  DO
             Read(arr1[i]);
         END_FOR
-    //remplissage du seond array
+//remplissage du seond array
         FOR j FROM 0 TO n2-1 STEP 1  DO
             Read(arr2[j]);
         END_FOR
