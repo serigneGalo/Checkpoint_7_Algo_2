@@ -13,10 +13,10 @@ BEGIN
     END_FOR
 
     FOR i FROM 0 TO n-1 STEP 1  DO
-//this loop for allows to get the ninimum of the array without the previous minimum.
-        FOR j FROM i TO arr.length-1 STEP 1  DO
-            IF (arr[j]<=min) THEN
-                min:=arr[j];
+// Cette bouble for permet de retourner(dans resultat[i]) le minimum de tab sans prendre en compte la valeur minimale précédente c'est à dire la valeur à la position i-1.
+        FOR j FROM i TO tab.length-1 STEP 1  DO
+            IF (tab[j]<=min) THEN
+                min:=tab[j];
             END_IF
         END_FOR
         resultat[i]:=min;
